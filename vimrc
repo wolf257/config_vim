@@ -74,7 +74,8 @@ set smartindent
 set smarttab
 set softtabstop=4
 
-filetype indent on
+filetype indent on      " load filetype-specific indent files
+set wildmenu            " visual autocomplete for command menu
 
 " Remove whitespaces on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -85,20 +86,25 @@ set autowrite
 set incsearch "search as characters are entered
 set hlsearch "highlight matches
 set ignorecase
+nnoremap <leader><space> :nohlsearch<CR>
 
 "NATIVE FILE EXPLORER
 " absolute width of netrw window
 let g:netrw_winsize = -28
-
 " tree-view
 let g:netrw_liststyle = 3
-
 " sort is affecting only: directories on the top, files below
 let g:netrw_sort_sequence = '[\/]$,*'
-
 " open file in a new tab
 let g:netrw_browse_split = 3
 
+
+
+set lazyredraw          " redraw only when we need to.
+
+" highlight last inserted text
+nnoremap gV `[v`]
+" It visually selects the block of characters you added last time you were in INSERT mode.
 """"""""""""""""""""""""""""""""""""""""""""""""
 "                   MAPPING
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -107,6 +113,7 @@ let mapleader = ','
 
 " MAPPING
 map ; : 
+
 
 " use jj to quickly escape to normal mode while typing <- AWESOME tip
 inoremap jj <ESC>
@@ -122,7 +129,10 @@ noremap <silent> <Leader>cc :TComment<CR>              "tcomment_vim
 
 
 
-
+" edit vimrc/zshrc and load vimrc bindings
+nnoremap <leader>ev :vsp $MYVIMRC<CR>
+nnoremap <leader>ez :vsp ~/.zshrc<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
 
 
 
