@@ -1,6 +1,10 @@
 "return" 2>&- || "exit"
 " To avoid problems when sourcing
 
+""""""""""""""""""""""""""""""""""""""""""""""""
+"            PACKAGES/PLUGGINS
+""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Specify a directory for plugins
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
@@ -32,12 +36,9 @@ Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 
-let mapleader = ','
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""
 "                   SETTINGS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""
 
 "set nocompatible              " required
 "filetype off                  " required
@@ -98,9 +99,35 @@ let g:netrw_sort_sequence = '[\/]$,*'
 " open file in a new tab
 let g:netrw_browse_split = 3
 
+""""""""""""""""""""""""""""""""""""""""""""""""
+"                   MAPPING
+""""""""""""""""""""""""""""""""""""""""""""""""
+
+let mapleader = ','
 
 " MAPPING
 map ; : 
+
+" use jj to quickly escape to normal mode while typing <- AWESOME tip
 inoremap jj <ESC>
+
+" insert newline without entering insert mode
 map <CR> o<Esc>k
+
+" reloads .vimrc -- making all changes active
+map <silent> <Leader>v :source ~/.vimrc<CR>:PlugInstall<CR>:bdelete<CR>:exe ":echo 'vimrc reloaded'"<CR>
+
+" Leader C prefix is for code related mappings (completion, tidy, documentation...)
+noremap <silent> <Leader>cc :TComment<CR>              "tcomment_vim
+
+
+
+
+
+
+
+
+
+
+
 
