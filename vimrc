@@ -112,8 +112,6 @@ nnoremap gV `[v`]
 let mapleader = ','
 
 " MAPPING
-map ; : 
-
 
 " use jj to quickly escape to normal mode while typing <- AWESOME tip
 inoremap jj <ESC>
@@ -128,13 +126,15 @@ map <silent> <Leader>v :source ~/.vimrc<CR>:PlugInstall<CR>:bdelete<CR>:exe ":ec
 noremap <silent> <Leader>cc :TComment<CR>              "tcomment_vim
 
 
-
 " edit vimrc/zshrc and load vimrc bindings
-nnoremap <leader>ev :vsp $MYVIMRC<CR>
+nnoremap <leader>ev :vsp ~/.vimrc<CR>
 nnoremap <leader>ez :vsp ~/.zshrc<CR>
-nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap <leader>sv :source ~/.vimrc<CR>
 
 
+
+nnoremap <leader>wq :wq<CR>
+nnoremap <leader>w :w<CR>
 
 
 
