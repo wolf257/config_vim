@@ -8,9 +8,37 @@ call plug#begin('~/.vim/plugged')
 " Initialize plugin system
 call plug#begin()
 
+"PACKAGE
+Plug 'tomtom/tcomment_vim'
+    " LIGHTLINE
+Plug 'itchyny/lightline.vim'
+ 
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'modified', 'charvaluehex' ] ]
+      \ },
+      \ 'component': {
+      \   'charvaluehex': '0x%B'
+      \ },
+      \ }
+      
+:set laststatus=2
+set noshowmode
+
+Plug 'sheerun/vim-polyglot'
+
+call plug#end()
+
+
 let mapleader = ','
 
-"====================================
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                   SETTINGS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 "set nocompatible              " required
 "filetype off                  " required
 
@@ -76,25 +104,3 @@ map ; :
 inoremap jj <ESC>
 map <CR> o<Esc>k
 
-"PACKAGE
-Plug 'tomtom/tcomment_vim'
-    " LIGHTLINE
-Plug 'itchyny/lightline.vim'
- 
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'readonly', 'filename', 'modified', 'charvaluehex' ] ]
-      \ },
-      \ 'component': {
-      \   'charvaluehex': '0x%B'
-      \ },
-      \ }
-      
-:set laststatus=2
-set noshowmode
-
-Plug 'sheerun/vim-polyglot'
-
-call plug#end()
