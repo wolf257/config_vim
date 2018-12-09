@@ -16,7 +16,7 @@ call plug#begin()
 Plug 'tomtom/tcomment_vim'
     " LIGHTLINE
 Plug 'itchyny/lightline.vim'
- 
+
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
@@ -27,11 +27,14 @@ let g:lightline = {
       \   'charvaluehex': '0x%B'
       \ },
       \ }
-      
+
 :set laststatus=2
 set noshowmode
 
-Plug 'sheerun/vim-polyglot'
+" Plug 'davidhalter/jedi-vim'
+
+
+Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
@@ -53,6 +56,8 @@ syntax on "coloration syntaxique
 set colorcolumn=120 "color the line if to long
 set showmatch "highlight matching [{()}]
 set showcmd "show command
+" colorscheme solarized
+
 
 "NUMBERING
 "set number   "show line numbers
@@ -67,8 +72,8 @@ set showcmd "show command
 "SPACE AND TABS
 "Conserve l'indentation courante sur les nouvelles lignes
 set autoindent
-"Conversion des tabulations en espaces 
-set expandtab 
+"Conversion des tabulations en espaces
+set expandtab
 set shiftwidth=4
 set smartindent
 set smarttab
@@ -105,13 +110,12 @@ set lazyredraw          " redraw only when we need to.
 " highlight last inserted text
 nnoremap gV `[v`]
 " It visually selects the block of characters you added last time you were in INSERT mode.
+
 """"""""""""""""""""""""""""""""""""""""""""""""
 "                   MAPPING
 """"""""""""""""""""""""""""""""""""""""""""""""
 
 let mapleader = ','
-
-" MAPPING
 
 " use jj to quickly escape to normal mode while typing <- AWESOME tip
 inoremap jj <ESC>
@@ -132,12 +136,16 @@ nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source ~/.vimrc<CR>
 
 
-
 nnoremap <leader>wq :wq<CR>
 nnoremap <leader>w :w<CR>
 
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
 
 
-
-
+" GUI (MacVim)
+if has('gui_running')
+    colorscheme solarized
+    set guifont=Courier:h18"
+endif
 
