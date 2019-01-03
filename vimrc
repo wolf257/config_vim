@@ -61,7 +61,7 @@ set showcmd "show command
 
 "NUMBERING
 "set number   "show line numbers
-:set number relativenumber
+set number relativenumber
 
 :augroup numbertoggle
 :  autocmd!
